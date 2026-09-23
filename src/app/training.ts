@@ -1,43 +1,70 @@
-export interface IUser {
+interface IUser {
   id: number;
   name: string;
   email: string;
   age?: number;
 }
 
-export interface IAdmin extends IUser {
+interface IAdmin extends IUser {
   role: string;
   permissions: string[];
 }
 
-export type UploadStatus = 'loading' | 'success' | 'error';
-export type TextFormat = 'uppercase' | 'lowercase' | 'capitalize';
+type UploadStatus = 'loading' | 'success' | 'error';
 
-export const uploadStatus: UploadStatus = 'loading';
-export const textFormat: TextFormat = 'uppercase';
+type TextFormat = 'uppercase' | 'lowercase' | 'capitalize';
 
-export function sum(a: number, b: number): number {
+const uploadStatus: UploadStatus = 'loading';
+
+const textFormat: TextFormat = 'uppercase';
+
+function sum(a: number, b: number): number {
   return a + b;
 }
 
-export function formatText(str: string, format: TextFormat): string {
-  if (format === 'uppercase') {
-    return str.toUpperCase();
+function formatText(str: string, format: TextFormat): string {
+  switch (format) {
+    case 'uppercase':
+      return str.toUpperCase();
+    case 'lowercase':
+      return str.toLowerCase();
+    case 'capitalize':
+      if (!str) return str;
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    default:
+      return str;
   }
-  if (format === 'lowercase') {
-    return str.toLowerCase();
-  }
-  if (format === 'capitalize') {
-    if (!str) return str;
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  }
-  return str;
 }
 
-export function removeCharacter(str: string, char: string): string {
+function removeCharacter(str: string, char: string): string {
   return str.replaceAll(char, '');
 }
 
-export function filterUsersByAge(users: IUser[], minAge: number): IUser[] {
-  return users.filter((user) => user.age !== undefined && user.age >= minAge);
+const users: IUser[] = [
+  {
+    id: 1,
+    name: 'Ivan',
+    email: 'ivan@example.com',
+    age: 25
+  },
+  {
+    id: 2,
+    name: 'Alexey',
+    email: 'alex@example.com',
+    age: 30
+  },
+  {
+    id: 3,
+    name: 'Maria',
+    email: 'maria@example.com',
+    age: 22
+  }
+];
+
+function filterUsersByAge(users: IUser[], minAge: number): IUser[] {
+  return users.filter(
+    (user: IUser) => user.age !== undefined && user.age >= minAge
+  );
 }
+
+export {};
