@@ -1,1 +1,73 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="/images/svg/logo-icon.svg" alt="">
+      <span>{{ companyName }}</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#">Главная</a>
+      <a href="#">Про гида</a>
+      <a href="#">Программа тура</a>
+      <a href="#">Стоимость</a>
+      <a href="#">Блог</a>
+      <a href="#">Контакты</a>
+    </nav>
+
+    <button class="consultation-button" type="button">
+      Консультация
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-container">
+    <h1 class="hero-title">
+      Насладись прогулкой в горах<br>
+      с командой единомышленников
+    </h1>
+
+    <div class="tour-search">
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="location">
+          Локация для тура
+        </label>
+        <select id="location">
+          <option value="">Локация для тура</option>
+        </select>
+        <span class="tour-search-hint">
+          выберите из списка
+        </span>
+      </div>
+
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="date">
+          Дата похода
+        </label>
+        <input id="date" type="date">
+        <span class="tour-search-hint">
+          укажите дату
+        </span>
+      </div>
+
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="participants">
+          Участники
+        </label>
+        <select id="participants">
+          <option value="">Участники</option>
+          <option value="4">4 человека</option>
+          <option value="5">5 человек</option>
+          <option value="6">6 человек</option>
+        </select>
+        <span class="tour-search-hint">
+          выберите из списка
+        </span>
+      </div>
+
+      <button class="tour-search-button" type="button">
+        Найти программу
+      </button>
+    </div>
+  </div>
+</section>
