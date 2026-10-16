@@ -21,15 +21,18 @@ export class AppComponent {
     this.saveLastVisit();
     this.saveVisitCount();
   }
+
   isPrimaryColor(color: Color): boolean {
-    return color === Color.Red || color === Color.Green || color === Color.Blue;
+    return color === Color.RED || color === Color.GREEN || color === Color.BLUE;
   }
+
   saveLastVisit(): void {
-    const currentDate = new Date();
+    const currentDate: Date = new Date();
     localStorage.setItem('lastVisit', currentDate.toString());
   }
+
   saveVisitCount(): void {
-    const visitCount = Number(localStorage.getItem('visitCount')) || 0;
+    const visitCount: number = Number(localStorage.getItem('visitCount')) || 0;
     localStorage.setItem('visitCount', String(visitCount + 1));
   }
 }

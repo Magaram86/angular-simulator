@@ -6,15 +6,15 @@
     </div>
 
     <nav class="nav">
-      <a href="#">Главная</a>
-      <a href="#">Про гида</a>
-      <a href="#">Программа тура</a>
-      <a href="#">Стоимость</a>
-      <a href="#">Блог</a>
-      <a href="#">Контакты</a>
+      <a id="home-link" href="#">Главная</a>
+      <a id="about-guide-link" href="#">Про гида</a>
+      <a id="tour-program-link" href="#">Программа тура</a>
+      <a id="pricing-link" href="#">Стоимость</a>
+      <a id="blog-link" href="#">Блог</a>
+      <a id="contacts-link" href="#">Контакты</a>
     </nav>
 
-    <button class="consultation-button" type="button">
+    <button id="consultation-button" class="consultation-button" type="button">
       Консультация
     </button>
   </div>
@@ -29,10 +29,10 @@
 
     <div class="tour-search">
       <div class="tour-search-field">
-        <label class="visually-hidden" for="location">
+        <label class="visually-hidden" for="tour-location">
           Локация для тура
         </label>
-        <select id="location">
+        <select id="tour-location">
           <option value="">Локация для тура</option>
         </select>
         <span class="tour-search-hint">
@@ -41,20 +41,20 @@
       </div>
 
       <div class="tour-search-field">
-        <label class="visually-hidden" for="date">
+        <label class="visually-hidden" for="tour-date">
           Дата похода
         </label>
-        <input id="date" type="date">
+        <input id="tour-date" type="date">
         <span class="tour-search-hint">
           укажите дату
         </span>
       </div>
 
       <div class="tour-search-field">
-        <label class="visually-hidden" for="participants">
+        <label class="visually-hidden" for="tour-participants">
           Участники
         </label>
-        <select id="participants">
+        <select id="tour-participants">
           <option value="">Участники</option>
           <option value="4">4 человека</option>
           <option value="5">5 человек</option>
@@ -65,7 +65,7 @@
         </span>
       </div>
 
-      <button class="tour-search-button" type="button">
+      <button id="find-program-button" class="tour-search-button" type="button">
         Найти программу
       </button>
     </div>
