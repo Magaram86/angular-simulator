@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+@use './assets/fonts';
+@use './assets/normalize';
+
+* {
+  font-family: 'Nunito Sans';
+}
+
+.container {
+  display: block;
+  width: 1180px;
+  margin: 0 auto;
+}

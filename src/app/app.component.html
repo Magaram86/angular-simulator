@@ -1,1 +1,73 @@
-<h1 style="display: flex; justify-content: center; font-family: sans-serif;">NGX SIMULATOR</h1>
+<header class="header">
+  <div class="container header-container">
+    <div class="logo">
+      <img src="/images/svg/logo-icon.svg" alt="">
+      <span>{{ companyName }}</span>
+    </div>
+
+    <nav class="nav">
+      <a id="home-link" href="#">Главная</a>
+      <a id="about-guide-link" href="#">Про гида</a>
+      <a id="tour-program-link" href="#">Программа тура</a>
+      <a id="pricing-link" href="#">Стоимость</a>
+      <a id="blog-link" href="#">Блог</a>
+      <a id="contacts-link" href="#">Контакты</a>
+    </nav>
+
+    <button id="consultation-button" class="consultation-button" type="button">
+      Консультация
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-container">
+    <h1 class="hero-title">
+      Насладись прогулкой в горах<br>
+      с командой единомышленников
+    </h1>
+
+    <div class="tour-search">
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="tour-location">
+          Локация для тура
+        </label>
+        <select id="tour-location">
+          <option value="">Локация для тура</option>
+        </select>
+        <span class="tour-search-hint">
+          выберите из списка
+        </span>
+      </div>
+
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="tour-date">
+          Дата похода
+        </label>
+        <input id="tour-date" type="date">
+        <span class="tour-search-hint">
+          укажите дату
+        </span>
+      </div>
+
+      <div class="tour-search-field">
+        <label class="visually-hidden" for="tour-participants">
+          Участники
+        </label>
+        <select id="tour-participants">
+          <option value="">Участники</option>
+          <option value="4">4 человека</option>
+          <option value="5">5 человек</option>
+          <option value="6">6 человек</option>
+        </select>
+        <span class="tour-search-hint">
+          выберите из списка
+        </span>
+      </div>
+
+      <button id="find-program-button" class="tour-search-button" type="button">
+        Найти программу
+      </button>
+    </div>
+  </div>
+</section>
