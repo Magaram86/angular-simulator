@@ -1,3 +1,10 @@
+@if (isLoading) {
+<div class="page-loader">
+  <div class="page-loader-spinner"></div>
+  <span>Загрузка...</span>
+</div>
+} @else {
+
 <header class="header">
   <div class="container header-container">
     <div class="logo">
@@ -14,9 +21,34 @@
       <a id="contacts-link" href="#">Контакты</a>
     </nav>
 
-    <button id="consultation-button" class="consultation-button" type="button">
-      Консультация
-    </button>
+    <div class="header-actions">
+      <button id="consultation-button" class="consultation-button" type="button">
+        Консультация
+      </button>
+
+      @if (showDateTime) {
+      <div class="header-datetime">
+        {{ currentDate.toLocaleString('ru-RU') }}
+      </div>
+      }
+      @else {
+      <div class="header-counter">
+        <button id="counter-decrement" type="button" (click)="decrementCounter()" [disabled]="counter === 0">
+          −
+        </button>
+
+        <span class="counter-value">{{ counter }}</span>
+
+        <button id="counter-increment" type="button" (click)="incrementCounter()">
+          +
+        </button>
+      </div>
+      }
+
+      <button id="header-toggle-button" class="header-toggle-button" type="button" (click)="toggleHeaderDisplay()">
+        {{ showDateTime ? 'Показать счётчик' : 'Показать время' }}
+      </button>
+    </div>
   </div>
 </header>
 
@@ -32,8 +64,11 @@
         <label class="visually-hidden" for="tour-location">
           Локация для тура
         </label>
-        <select id="tour-location">
+        <select id="tour-location" [(ngModel)]="tourLocation">
           <option value="">Локация для тура</option>
+          <option value="elbrus">Эльбрус</option>
+          <option value="altai">Алтай</option>
+          <option value="kavkaz">Кавказ</option>
         </select>
         <span class="tour-search-hint">
           выберите из списка
@@ -44,7 +79,7 @@
         <label class="visually-hidden" for="tour-date">
           Дата похода
         </label>
-        <input id="tour-date" type="date">
+        <input id="tour-date" type="date" [(ngModel)]="tourDate">
         <span class="tour-search-hint">
           укажите дату
         </span>
@@ -54,7 +89,7 @@
         <label class="visually-hidden" for="tour-participants">
           Участники
         </label>
-        <select id="tour-participants">
+        <select id="tour-participants" [(ngModel)]="tourParticipants">
           <option value="">Участники</option>
           <option value="4">4 человека</option>
           <option value="5">5 человек</option>
@@ -65,9 +100,94 @@
         </span>
       </div>
 
-      <button id="find-program-button" class="tour-search-button" type="button">
+      <button id="find-program-button" class="tour-search-button button" type="button"
+        [disabled]="!tourLocation || !tourDate || !tourParticipants">
         Найти программу
       </button>
     </div>
   </div>
 </section>
+
+<section class="about-tour">
+  <div class="container about-tour-container">
+    <div class="about-tour-images">
+      <img class="about-tour-image about-tour-image-back" src="/images/about-tour/about-tour-back.png" alt="">
+      <img class="about-tour-image about-tour-image-front" src="/images/about-tour/about-tour-front.png" alt="">
+      <button id="about-tour-play-button" class="about-tour-play-button" type="button">
+        <img src="/images/svg/play-icon.svg" alt="">
+      </button>
+    </div>
+
+    <div class="about-tour-content">
+      <span class="about-tour-subtitle section-subtitle">
+        О нашем походе
+      </span>
+
+      <h2 class="about-tour-title section-title">
+        Исследуйте все горные массивы мира вместе с нами
+      </h2>
+
+      <p class="about-tour-description">
+        Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад. Ричард
+        МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат Вирджиния, взял одно из самых странных слов в
+        Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
+      </p>
+
+      <button id="tour-program-button" class="button" type="button">
+        Программа тура
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="tour-programs">
+  <div class="container tour-programs-container">
+    <div class="tour-programs-content">
+      <span class="tour-programs-subtitle section-subtitle">
+        Наше предложение
+      </span>
+
+      <h2 class="tour-programs-title section-title">
+        Лучшие программы для тебя
+      </h2>
+
+      <p class="tour-programs-description">
+        Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+        то есть более двух тысячелетий назад. Ричард МакКлинток,
+        профессор латыни из колледжа.
+      </p>
+
+      <div class="tour-programs-benefits">
+        @for (benefit of tourBenefits; track benefit.id) {
+        <div class="tour-programs-benefit">
+          <img [src]="benefit.icon" [alt]="benefit.title">
+
+          <div class="tour-programs-benefit-content">
+            <h3>{{ benefit.title }}</h3>
+            <p>{{ benefit.description }}</p>
+          </div>
+        </div>
+        }
+      </div>
+      <button id="tour-pricing-button" class="button" type="button">
+        Стоимость программ
+      </button>
+    </div>
+
+    <div class="tour-programs-images">
+      <img src="/images/tour-programs/tour-program-1.png" alt="Горное озеро">
+      <img src="/images/tour-programs/tour-program-2.png" alt="Поход в горы">
+      <img src="/images/tour-programs/tour-program-3.png" alt="Поездка по снежным горам">
+      <img src="/images/tour-programs/tour-program-4.png" alt="Горная долина">
+    </div>
+  </div>
+</section>
+
+<div class="container live-input">
+  <label for="live-input-field">Введите текст:</label>
+
+  <input id="live-input-field" type="text" [(ngModel)]="liveInputText" placeholder="Напишите что-нибудь">
+
+  <span>{{ liveInputText }}</span>
+</div>
+}

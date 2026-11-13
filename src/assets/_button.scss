@@ -1,0 +1,13 @@
+.button {
+  min-height: 52px;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
