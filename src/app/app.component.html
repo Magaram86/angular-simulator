@@ -160,7 +160,7 @@
       <div class="tour-programs-benefits">
         @for (benefit of tourBenefits; track benefit.id) {
         <div class="tour-programs-benefit">
-          <img [src]="benefit.icon" [alt]="benefit.title">
+          <img [src]="'/images/svg/' + benefit.icon + '.svg'" [alt]="benefit.title">
 
           <div class="tour-programs-benefit-content">
             <h3>{{ benefit.title }}</h3>
@@ -175,10 +175,10 @@
     </div>
 
     <div class="tour-programs-images">
-      <img src="/images/tour-programs/tour-program-1.png" alt="Горное озеро">
-      <img src="/images/tour-programs/tour-program-2.png" alt="Поход в горы">
-      <img src="/images/tour-programs/tour-program-3.png" alt="Поездка по снежным горам">
-      <img src="/images/tour-programs/tour-program-4.png" alt="Горная долина">
+      <img src="/images/tour-programs/mountain-lake.png" alt="Горное озеро">
+      <img src="/images/tour-programs/mountain-hiking.png" alt="Поход в горы">
+      <img src="/images/tour-programs/snowy-mountains.png" alt="Поездка по снежным горам">
+      <img src="/images/tour-programs/mountain-valley.png" alt="Горная долина">
     </div>
   </div>
 </section>

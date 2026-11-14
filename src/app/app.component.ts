@@ -19,37 +19,38 @@ interface ITourBenefit {
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnDestroy {
-  public companyName: string = 'РУМТИБЕТ';
-  public tourLocation: string = '';
-  public tourDate: string = '';
-  public tourParticipants: string = '';
-  public liveInputText: string = '';
-  public currentDate: Date = new Date();
-  public counter: number = 0;
-  public showDateTime: boolean = true;
-  public isLoading: boolean = true;
-  public numbers: number[] = [10, 20, 30, 40, 50];
-  public numbersCollection: Collection<number> = new Collection(this.numbers);
-  public names: string[] = ['Иван', 'Алексей', 'Мария'];
-  public namesCollection: Collection<string> = new Collection(this.names);
-  public readonly tourBenefits: ITourBenefit[] = [
+  companyName: string = 'РУМТИБЕТ';
+  tourLocation: string = '';
+  tourDate: string = '';
+  tourParticipants: string = '';
+  liveInputText: string = '';
+  currentDate: Date = new Date();
+  counter: number = 0;
+  showDateTime: boolean = true;
+  isLoading: boolean = true;
+  numbers: number[] = [10, 20, 30, 40, 50];
+  numbersCollection: Collection<number> = new Collection(this.numbers);
+  names: string[] = ['Иван', 'Алексей', 'Мария'];
+  namesCollection: Collection<string> = new Collection(this.names);
+
+  readonly tourBenefits: ITourBenefit[] = [
     {
       id: 1,
       title: 'Опытный гид',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: '/images/svg/experienced-guide-icon.svg',
+      icon: 'experienced-guide-icon.',
     },
     {
       id: 2,
       title: 'Безопасный поход',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: '/images/svg/safe-hiking-icon.svg',
+      icon: 'safe-hiking-icon.',
     },
     {
       id: 3,
       title: 'Лояльные цены',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: '/images/svg/affordable-price-icon.svg',
+      icon: 'affordable-price-icon.',
     },
   ];
 
@@ -59,16 +60,17 @@ export class AppComponent implements OnDestroy {
   constructor() {
     this.saveLastVisit();
     this.saveVisitCount();
+
     this.timerId = setInterval((): void => {
       this.currentDate = new Date();
     }, 1000);
+
     this.loadingTimerId = setTimeout((): void => {
       this.isLoading = false;
     }, 2000);
   }
 
-
-  public isPrimaryColor(color: Color): boolean {
+  isPrimaryColor(color: Color): boolean {
     return color === Color.RED || color === Color.GREEN || color === Color.BLUE;
   }
 
@@ -82,21 +84,21 @@ export class AppComponent implements OnDestroy {
     localStorage.setItem('visitCount', String(visitCount + 1));
   }
 
-  public incrementCounter(): void {
+  incrementCounter(): void {
     this.counter++;
   }
 
-  public decrementCounter(): void {
+  decrementCounter(): void {
     if (this.counter > 0) {
       this.counter--;
     }
   }
 
-  public toggleHeaderDisplay(): void {
+  toggleHeaderDisplay(): void {
     this.showDateTime = !this.showDateTime;
   }
 
-  public ngOnDestroy(): void {
+  ngOnDestroy(): void {
     if (this.timerId !== undefined) {
       clearInterval(this.timerId);
     }
