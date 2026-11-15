@@ -38,19 +38,19 @@ export class AppComponent implements OnDestroy {
       id: 1,
       title: 'Опытный гид',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: 'experienced-guide-icon.',
+      icon: 'experienced-guide-icon',
     },
     {
       id: 2,
       title: 'Безопасный поход',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: 'safe-hiking-icon.',
+      icon: 'safe-hiking-icon',
     },
     {
       id: 3,
       title: 'Лояльные цены',
       description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активности.',
-      icon: 'affordable-price-icon.',
+      icon: 'affordable-price-icon',
     },
   ];
 
