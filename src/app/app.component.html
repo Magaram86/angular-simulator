@@ -133,7 +133,8 @@
         Lorem Ipsum, "consectetur"и занялся его поисками в классической латинской литературе.
       </p>
 
-      <button id="tour-program-button" class="button" type="button">
+      <button class="button" type="button"
+        (click)="notificationService.addMessage(notificationType.Warn, 'Программа недоступна')">
         Программа тура
       </button>
     </div>
@@ -169,7 +170,8 @@
         </div>
         }
       </div>
-      <button id="tour-pricing-button" class="button" type="button">
+      <button id="tour-pricing-button" class="button" type="button"
+        (click)="notificationService.addMessage(notificationType.Info, 'Стоимость отправлена на почту')">
         Стоимость программ
       </button>
     </div>
@@ -183,6 +185,72 @@
   </div>
 </section>
 
+<section class="popular-tours">
+  <div class="container popular-tours-container">
+    <span class="section-subtitle">по версии отдыхающих</span>
+    <h2 class="section-title">Популярные направления</h2>
+
+    <div class="popular-tours-list">
+      @for (tour of popularTours; track tour.id) {
+      <article class="popular-tour">
+        <img class="popular-tour-image" [src]="'/images/popular-tours/' + tour.image + '.png'" [alt]="tour.title">
+
+        <div class="popular-tour-rating">
+          <img class="popular-tour-star" src="/images/svg/rating-star.svg" alt="Звезда рейтинга">
+          <span>{{ tour.rating.toFixed(1) }}</span>
+        </div>
+
+        <div class="popular-tour-info">
+          <div class="popular-tour-description">
+            <h3>{{ tour.title }}</h3>
+            <p>{{ tour.description }}</p>
+          </div>
+
+          <span class="popular-tour-price">{{ tour.price }} $</span>
+        </div>
+      </article>
+      }
+    </div>
+
+    <button id="popular-tours-button" class="button" type="button"
+      (click)="notificationService.addMessage(notificationType.Success, 'Направления получены')">
+      Рейтинг направлений
+    </button>
+  </div>
+</section>
+
+<section class="travel-blog">
+  <div class="container travel-blog-container">
+    <span class="section-subtitle">делимся впечатлениями</span>
+    <h2 class="section-title">Блог о путешествиях</h2>
+
+    <div class="travel-blog-list">
+      @for (post of travelBlogPosts; track post.id) {
+      <article class="travel-blog-card">
+        <img class="travel-blog-image" [src]="'/images/travel-blog/' + post.image + '.png'" [alt]="post.title">
+
+        <div class="travel-blog-content">
+          <div class="travel-blog-text">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.description }}</p>
+          </div>
+
+          <div class="travel-blog-footer">
+            <time>{{ post.date }}</time>
+            <a href="#" (click)="$event.preventDefault()">читать статью</a>
+          </div>
+        </div>
+      </article>
+      }
+    </div>
+
+    <button class="button travel-blog-button" type="button"
+      (click)="notificationService.addMessage(notificationType.Error, 'Материалы недоступны')">
+      Другие материалы
+    </button>
+  </div>
+</section>
+
 <div class="container live-input">
   <label for="live-input-field">Введите текст:</label>
 
@@ -191,3 +259,25 @@
   <span>{{ liveInputText }}</span>
 </div>
 }
+
+<div class="toast-container">
+
+  @for (message of notificationService.messages(); track message.id) {
+  <ng-container [ngTemplateOutlet]="toastTemplate" [ngTemplateOutletContext]="{ $implicit: message }" />
+  }
+</div>
+
+<ng-template #toastTemplate let-message>
+  <div class="toast">
+    <img class="toast-icon" src="/images/svg/notification-icon.svg" alt="Иконка уведомления">
+
+    <div class="toast-content">
+      <strong>{{ message.type }}</strong>
+      <span>{{ message.text }}</span>
+    </div>
+
+    <button type="button" aria-label="Закрыть уведомление" (click)="notificationService.closeMessage(message.id)">
+      <img src="/images/svg/notification-close-icon.svg" alt="">
+    </button>
+  </div>
+</ng-template>
