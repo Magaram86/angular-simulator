@@ -47,7 +47,6 @@
       }
     }
 
-
     .header-actions {
       display: flex;
       flex-direction: column;
@@ -109,7 +108,6 @@
       }
     }
 
-
     .consultation-button {
       width: 158px;
       height: 44px;
@@ -155,7 +153,7 @@
       display: flex;
       align-items: flex-start;
       gap: 24px;
-      box-sizing: border-box;
+
       background-color: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(6px);
       border-radius: 10px;
@@ -168,7 +166,7 @@
           width: 270px;
           height: 52px;
           padding: 14px 16px;
-          box-sizing: border-box;
+
           border: 1px solid #e1e3e4;
           border-radius: 8px;
           background-color: transparent;
@@ -193,7 +191,7 @@
           height: 21px;
           margin-top: 8px;
           padding-left: 8px;
-          box-sizing: border-box;
+
           color: #fdfdfd;
           font-size: 14px;
           line-height: 21px;
@@ -203,7 +201,7 @@
       .tour-search-button {
         width: 213px;
         height: 52px;
-        box-sizing: border-box;
+
 
         &:disabled {
           opacity: 0.5;
@@ -301,7 +299,7 @@
 .tour-programs {
   min-height: 771px;
   padding: 80px 0 100px;
-  box-sizing: border-box;
+
   background-color: #f3f5f4;
 
   .tour-programs-container {
@@ -348,7 +346,7 @@
           width: 50px;
           height: 50px;
           padding: 7px;
-          box-sizing: border-box;
+
           border-radius: 4px;
           flex-shrink: 0;
         }
@@ -425,7 +423,7 @@
     width: 250px;
     height: 40px;
     padding: 8px 12px;
-    box-sizing: border-box;
+
     border: 1px solid var(--primary-color);
     border-radius: 4px;
     font-size: 16px;
@@ -438,4 +436,256 @@
     font-weight: 600;
     overflow-wrap: anywhere;
   }
+}
+
+.popular-tours {
+  padding: 80px 0 100px;
+
+  .popular-tours-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .popular-tours-list {
+    display: grid;
+    grid-template-columns: repeat(3, 380px);
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  .popular-tour {
+    position: relative;
+    height: 500px;
+    border-radius: 32px;
+    overflow: hidden;
+
+    .popular-tour-image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .popular-tour-rating {
+      position: absolute;
+      top: 50px;
+      right: 0;
+      width: 65px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 8px;
+      border-radius: 4px 0 0 4px;
+      background-color: rgba(253, 253, 253, 0.4);
+      backdrop-filter: blur(4px);
+      font-size: 14px;
+
+      .popular-tour-star {
+        display: block;
+        width: 17.11px;
+        height: 16.36px;
+      }
+    }
+
+    .popular-tour-info {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 90px;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(3px);
+      color: #fdfdfd;
+
+      .popular-tour-description {
+        min-width: 0;
+
+        h3 {
+          font-size: 24px;
+          font-weight: 700;
+          line-height: 120%;
+        }
+
+        p {
+          font-size: 14px;
+          line-height: 18px;
+        }
+      }
+
+      .popular-tour-price {
+        padding: 8.5px 16px;
+        flex-shrink: 0;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.3);
+        font-size: 20px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  #popular-tours-button {
+    margin-top: 40px;
+  }
+}
+
+.travel-blog {
+  padding: 80px 0 100px;
+  background-color: #f3f5f4;
+
+  .travel-blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .travel-blog-list {
+    display: grid;
+    grid-template-columns: repeat(2, 580px);
+    gap: 24px 20px;
+    margin-top: 40px;
+  }
+
+  .travel-blog-card {
+    display: flex;
+    gap: 24px;
+    width: 580px;
+    height: 312px;
+    padding: 16px;
+    border-radius: 10px;
+    background-color: var(--white-color);
+  }
+
+  .travel-blog-image {
+    display: block;
+    width: 230px;
+    height: 280px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  .travel-blog-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 16px 0;
+  }
+
+  .travel-blog-text {
+    h3 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      color: var(--text-color);
+    }
+
+    p {
+      margin-top: 24px;
+      font-size: 14px;
+      line-height: 20px;
+      color: var(--text-color);
+    }
+  }
+
+  .travel-blog-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 14px;
+    font-weight: 700;
+
+    time {
+      color: var(--accent-color);
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .travel-blog-button {
+    width: 220px;
+    height: 52px;
+    margin-top: 40px;
+  }
+}
+
+.toast-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 350px;
+  min-height: 70px;
+  padding: 14px;
+  border: 1px solid var(--white-color);
+  border-radius: 10px;
+  background-color: #0F172AD9;
+  opacity: 0.75;
+  color: #e8e9eb;
+  position: relative;
+
+  button {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.toast-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  line-height: 20px;
+
+  strong {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.toast-icon {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
 }
